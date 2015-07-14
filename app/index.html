@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Resolute Innovation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="bower_components/semantic-ui/dist/semantic.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script data-require="lodash.js@2.4.1" data-semver="2.4.1" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+  </head>
+  <body ng-app="riV10App">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="ui wide left vertical labeled icon sidebar menu" id="sidebar">
+      <a class="item" ng-href="#/search">
+        <i class="search icon"></i>
+        Search
+      </a>
+      <a class="item" ng-href="#/explore">
+        <i class="map icon"></i>
+        Explore
+      </a>
+      <a class="item" ng-href="#/recommended">
+        <i class="thumbs up icon"></i>
+        Recommended
+      </a>
+      <a class="item" ng-href="#/trending">
+        <i class="line chart icon"></i>
+        Trending
+      </a>
+      <a class="item" ng-href="#/featured">
+        <i class="star icon"></i>
+        Featured
+      </a>
+      <a class="item" href="#/login">
+        <i class="sign in icon large"></i>
+        Sign in
+      </a>
+      <a class="item" href="#/register">
+        <i class="add user icon"></i>
+        Register
+      </a>
+      <a href="#" class="item" ng-click="channelsCtrl.logout()">
+        <i class="sign out icon large"></i>
+        Sign out
+      </a>
+    </div>
+    <div class="pusher">
+      <div class="ui grid">
+        <div class="column">
+          <div class="ui three column grid" id="header">
+            <div class="column">
+              <div class="ui large icon toggle button left floated" id="toggle-button">
+                  <i class="content icon big"></i>
+              </div>
+            </div>
+            <div class="center aligned column">
+              <div class="header" id="page-title">
+                  <h2>Search</h2>
+              </div>
+            </div>
+            <div class="column">
+                <a href="#/search"><img class="ui medium image right floated" id="logo" src="images/RI-logo.svg" alt="Resolute Innovation"></a>
+                <a href="#/search"><img class="ui medium image right floated" id="logo-mobile" src="images/RI-logo-mobile.svg" alt="Resolute Innovation"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui grid">
+          <div class="sixteen wide column row no-padding">
+              <div class="four wide column" id="sidebar-menu-desktop">
+                <div class="content">
+                  <div class="item" style="height: 500px;">
+                    Profile area
+                  </div>
+                </div>
+                <ul>
+                  <li class="active"><a ng-href="#/search">Search</a></li>
+                  <li><a ng-href="#/explore">Explore</a></li>
+                  <li><a ng-href="#/recommended">Recommended</a></li>
+                  <li><a ng-href="#/trending">Trending</a></li>
+                  <li><a ng-href="#/featured">Featured</a></li>
+                </ul>
+                <div class="content" id="online-indicator">
+                  logout area
+                </div>
+              </div>
+              <div class="twelve wide column" id="main-view">
+                <!--<div class="item" id="channel-dropdown">
+                  <div class="ui top right pointing dropdown">
+                    <div class="header">
+                      <h1>Channel Name</h1>
+                    </div>
+                    <div class="menu">
+                      <div class="item"><i class="user icon"></i><a href="#">Profile</a></div>
+                      <div class="item"><i class="users icon"></i><a href="#">Followers</a></div>
+                      <div class="item"><i class="unhide icon"></i><a href="#">Following</a></div>
+                      <div class="item"><i class="setting icon"></i><a href="#/Settings">Settings</a></div>
+                    </div>
+                  </div>
+                </div>-->
+                <div ng-view=""></div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/semantic-ui/dist/semantic.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <!-- endbuild -->
+
+    <!-- SEMANTIC MODAL DROPDOWN -->
+    <script>
+      $('.dropdown').dropdown({
+          // you can use any ui transition
+          transition: 'drop'
+      });
+    </script>
+
+    <script>
+      $('.left.sidebar').first()
+        .sidebar('setting', 'transition', 'uncover')
+        .sidebar('attach events', '.toggle.button')
+        .sidebar('attach events', '.menu .item')
+      ;
+    </script>
+</body>
+</html>
